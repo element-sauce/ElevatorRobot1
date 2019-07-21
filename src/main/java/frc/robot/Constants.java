@@ -25,6 +25,11 @@ public class Constants {
   // public static int rangefinderModule = 1;
 
   public static int kBallIntakePort = 0;
+  public static int encoderInputOne = 0;
+  public static int encoderInputTwo = 1;
+
+  public static double ballPosition = 40.0;
+  public static double boxPosition = 20.0;
 
   private Constants()
   {

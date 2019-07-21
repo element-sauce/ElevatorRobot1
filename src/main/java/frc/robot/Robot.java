@@ -22,15 +22,14 @@ import frc.robot.subsystems.ExampleSubsystem;
 
 
 public class Robot extends TimedRobot {
-  public static BallIntake intake = null;
+  public static BallIntake intake = BallIntake.getInstance();
   public static Elevator box = BoxElevator.getInstance();
   public static Elevator ball = BallElevator.getInstance();
 
   @Override
   public void robotInit() {
-    intake = new BallIntake();
-    box = new BoxElevator();
-    ball = new BallElevator();
+    box.resetEncoder();
+    ball.resetEncoder();
   }
 
 
