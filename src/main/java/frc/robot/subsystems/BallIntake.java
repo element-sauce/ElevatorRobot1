@@ -8,13 +8,15 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Constants;
 
 /**
  * Add your docs here.
  */
-public class BallIntake {
+public class BallIntake extends Subsystem {
   DigitalInput ball_in = new DigitalInput(Constants.kBallIntakePort);
+  //some servo initialized here
 
   private static BallIntake instance;
 
@@ -31,6 +33,11 @@ public class BallIntake {
   }
 
   public void closeBallIntake() {
+    // servo.setPosition in the right direction to close
+  }
+
+  @Override
+  protected void initDefaultCommand() {
 
   }
 

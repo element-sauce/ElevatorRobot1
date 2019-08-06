@@ -28,8 +28,10 @@ public class Constants {
   public static int encoderInputOne = 0;
   public static int encoderInputTwo = 1;
 
-  public static double ballPosition = 40.0;
-  public static double boxPosition = 20.0;
+  public static final double BALL = 20.0;
+  public static final double BOX = 50.0;
+  public static final double SAFE_ELEVATOR_GAP = 5.0;
+  public static final double ELEVATOR_SLOW_POWER = 0.5;
 
   private Constants()
   {

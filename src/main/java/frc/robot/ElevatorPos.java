@@ -1,9 +1,19 @@
+package frc.robot;
+
+import frc.robot.Constants;
+
 public enum ElevatorPos {
-    // ZERO(0), RELEASE_CARGO_MECH(7), CARGO_LOW(2.4), CARGO_MID(98.6), CARGO_HIGH(191), CARGO_PICKUP(0), CARGO_GROUND(0), HATCH_LOW(22.4), HATCH_MID(118.6), HATCH_HIGH(197), HATCH_PICKUP(0);
-    ZERO(0), CARGO_LOW(10.0), CARGO_HIGH(30.0);
+    ZERO(0), 
+    ZERO_ABOVE(Constants.SAFE_ELEVATOR_GAP),
+    CARGO_LOW_BELOW(Constants.BOX-Constants.SAFE_ELEVATOR_GAP), 
+    CARGO_LOW(Constants.BOX), 
+    CARGO_LOW_ABOVE(Constants.BOX+Constants.SAFE_ELEVATOR_GAP), 
+    CARGO_HIGH_BELOW(Constants.BALL-Constants.SAFE_ELEVATOR_GAP),
+    CARGO_HIGH(Constants.BALL),
+    CARGO_HIGH_ABOVE(Constants.BALL+Constants.SAFE_ELEVATOR_GAP);
 
     private final double val;
-
+    
     /**
      * @param value refers to the number of encoder ticks of a certain position
      */

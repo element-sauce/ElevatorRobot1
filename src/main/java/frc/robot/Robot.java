@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.Autonomous;
 import frc.robot.commands.ExampleCommand;
 import frc.robot.subsystems.BallElevator;
 import frc.robot.subsystems.BallIntake;
@@ -22,6 +23,7 @@ import frc.robot.subsystems.ExampleSubsystem;
 
 
 public class Robot extends TimedRobot {
+  Command autonomous;
   public static BallIntake intake = BallIntake.getInstance();
   public static Elevator box = BoxElevator.getInstance();
   public static Elevator ball = BallElevator.getInstance();
@@ -30,6 +32,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     box.resetEncoder();
     ball.resetEncoder();
+    autonomous = new Autonomous();
   }
 
 
@@ -47,6 +50,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void autonomousInit() {
+    autonomous.start();
   }
 
   @Override
@@ -55,7 +59,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void teleopInit() {
-
+    ball.setElevatorPos(ElevatorPos.ZERO);
   }
 
   @Override
