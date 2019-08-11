@@ -32,6 +32,20 @@ public class Autonomous extends CommandGroup {
     // a CommandGroup containing them would require both the chassis and the
     // arm.
 
+    /**
+     * This hypothetical series of sequential commands is intended to sufficiently test the 
+     * correctness of the code. I just set all the power to 0.9.
+     * 
+     * 1. The ball elevator first moves to the low cargo position intended 
+     * normally for the box
+     * 
+     * 2. The box elevator moves to the low cargo position and the ball elevator is expected to move up to 
+     * make way with the box elevator.
+     * 
+     * 3. The ball elevator moves to the "zero position", where the box elevator moves down to compensate, meaning 
+     * the ball elevator's final position is below even the ball elevator under it.
+     */
+
     addSequential(new MoveElevator("ball", ElevatorPos.CARGO_LOW, 0.9));
     addSequential(new MoveElevator("box", ElevatorPos.CARGO_LOW, 0.9));
     addSequential(new MoveElevator("ball", ElevatorPos.ZERO, 0.9));

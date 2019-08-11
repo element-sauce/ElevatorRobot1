@@ -61,6 +61,8 @@ public class MoveElevator extends Command {
 
     @Override 
     protected void execute() {
+        //TODO: decrease the speed of the motor once it reaches some range within the specified target.
+
         if (elevator.equals("box")) {
             Robot.box.set(speed);
         } else if (elevator.equals("ball")) {
