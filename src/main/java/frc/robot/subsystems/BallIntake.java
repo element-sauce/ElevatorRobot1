@@ -12,7 +12,8 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.Constants;
 
 /**
- * Add your docs here.
+ * The digital input provides information about whether a ball is detected
+ * inside the ball intake subsystem.
  */
 public class BallIntake extends Subsystem {
   DigitalInput ball_in = new DigitalInput(Constants.kBallIntakePort);
