@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.Autonomous;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.MoveElevator;
 import frc.robot.subsystems.BallElevator;
 import frc.robot.subsystems.BallIntake;
 import frc.robot.subsystems.BoxElevator;
@@ -42,28 +43,36 @@ public class Robot extends TimedRobot {
 
   @Override
   public void disabledInit() {
+    
   }
 
   @Override
   public void disabledPeriodic() {
+
   }
 
   @Override
   public void autonomousInit() {
+    // ATTN: I am going resource leak errors right here!
+    
+    (new MoveElevator("ball", ElevatorPos.CARGO_HIGH, 0.9)).start();
+    (new MoveElevator("box", ElevatorPos.CARGO_LOW, 0.9)).start();
     autonomous.start();
   }
 
   @Override
   public void autonomousPeriodic() {
+
   }
 
   @Override
   public void teleopInit() {
-    ball.setElevatorPos(ElevatorPos.ZERO);
+    
   }
 
   @Override
   public void teleopPeriodic() {
+
   }
 
   @Override

@@ -28,6 +28,7 @@ public class MoveElevator extends Command {
         int boxPosition = Robot.box.getEncoderTicks(); 
 
         if (elevator.equals("box")) {
+            Robot.box.setElevatorPos(pos);
             executingLocation = Robot.box.executingPosition.getValue();
 
             if (ballPosition <= executingLocation) {
@@ -41,6 +42,7 @@ public class MoveElevator extends Command {
             }
             initTickDelta = (int)executingLocation - boxPosition;
         } else if (elevator.equals("ball")) {
+            Robot.ball.setElevatorPos(pos);
             executingLocation = Robot.ball.executingPosition.getValue();
 
             if (boxPosition >= executingLocation) {
