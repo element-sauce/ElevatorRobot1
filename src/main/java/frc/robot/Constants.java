@@ -24,13 +24,23 @@ public class Constants {
   // public static int rangefinderPort = 1;
   // public static int rangefinderModule = 1;
 
+  // The ball intake port
   public static int kBallIntakePort = 0;
+
+  // I added these two for the inputs of the Encoder constructor
   public static int encoderInputOne = 0;
   public static int encoderInputTwo = 1;
 
+  // The position of where the ball mechanism is meant to be
   public static final double BALL = 20.0;
+
+  //The position of where the box mechanism is meant to be
   public static final double BOX = 50.0;
+
+  // The margin that should be maintained between the two elevators at all times. Whether the code actually does this rn is questionable.
   public static final double SAFE_ELEVATOR_GAP = 5.0;
+
+  // The value defining slow power for the elevator talon
   public static final double ELEVATOR_SLOW_POWER = 0.5;
 
   private Constants()
