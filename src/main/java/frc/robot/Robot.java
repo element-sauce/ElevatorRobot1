@@ -24,7 +24,10 @@ import frc.robot.subsystems.ExampleSubsystem;
 
 
 public class Robot extends TimedRobot {
+  // I created a hypothetical autonomous routine that so far only tests the elevator functionality.
   Command autonomous;
+
+  // The instances are created in the classes themselves
   public static BallIntake intake = BallIntake.getInstance();
   public static Elevator box = BoxElevator.getInstance();
   public static Elevator ball = BallElevator.getInstance();
@@ -39,6 +42,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotPeriodic() {
+    
   }
 
   @Override
@@ -54,7 +58,7 @@ public class Robot extends TimedRobot {
   @Override
   public void autonomousInit() {
     // ATTN: I am going resource leak errors right here!
-    
+
     (new MoveElevator("ball", ElevatorPos.CARGO_HIGH, 0.9)).start();
     (new MoveElevator("box", ElevatorPos.CARGO_LOW, 0.9)).start();
     autonomous.start();

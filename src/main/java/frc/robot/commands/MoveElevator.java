@@ -27,16 +27,18 @@ public class MoveElevator extends Command {
         int ballPosition = Robot.ball.getEncoderTicks(); //unsure if the initial will be 0 or SAFE_ELEVATOR_GAP, will need to check
         int boxPosition = Robot.box.getEncoderTicks(); 
 
+        MoveElevator e;
+
         if (elevator.equals("box")) {
             Robot.box.setElevatorPos(pos);
             executingLocation = Robot.box.executingPosition.getValue();
 
             if (ballPosition <= executingLocation) {
                 if (Robot.box.executingPosition == ElevatorPos.CARGO_LOW) {
-                    MoveElevator e = new MoveElevator("ball", ElevatorPos.CARGO_LOW_ABOVE, 0.5);
+                    e = new MoveElevator("ball", ElevatorPos.CARGO_LOW_ABOVE, 0.5);
                     e.start();
                 } else if (Robot.box.executingPosition == ElevatorPos.CARGO_HIGH) {
-                    MoveElevator e = new MoveElevator("ball", ElevatorPos.CARGO_HIGH_ABOVE, 0.5);
+                    e = new MoveElevator("ball", ElevatorPos.CARGO_HIGH_ABOVE, 0.5);
                     e.start();
                 }
             }
@@ -47,13 +49,13 @@ public class MoveElevator extends Command {
 
             if (boxPosition >= executingLocation) {
                 if (Robot.ball.executingPosition == ElevatorPos.ZERO_ABOVE) {
-                    MoveElevator e = new MoveElevator("box", ElevatorPos.ZERO, 0.5);
+                    e = new MoveElevator("box", ElevatorPos.ZERO, 0.5);
                     e.start();
                 } else if (Robot.ball.executingPosition == ElevatorPos.CARGO_LOW) {
-                    MoveElevator e = new MoveElevator("box", ElevatorPos.CARGO_LOW_BELOW, 0.5);
+                    e = new MoveElevator("box", ElevatorPos.CARGO_LOW_BELOW, 0.5);
                     e.start();
                 } else if (Robot.ball.executingPosition == ElevatorPos.CARGO_HIGH) {
-                    MoveElevator e = new MoveElevator("box", ElevatorPos.CARGO_HIGH_BELOW, 0.5);
+                    e = new MoveElevator("box", ElevatorPos.CARGO_HIGH_BELOW, 0.5);
                     e.start();
                 } 
             }
